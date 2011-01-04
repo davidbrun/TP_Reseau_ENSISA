@@ -1,5 +1,0 @@
-INDEX VERSION 1.126+/Users/David/Documents/ENSISA/2A/TP/Java/Reseau/.metadata/.plugins/org.eclipse.jdt.core
-3880167299.index
-2539074642.index
-193290588.index
-1489437220.index
