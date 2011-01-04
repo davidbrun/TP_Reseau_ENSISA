@@ -39,8 +39,9 @@ public class Main {
 	}
 
 	private void printMappings (Vector<Mapping> mappings) {
-		if (mappings == null) System.out.println("Empty");
+		if (mappings == null) System.out.println("null");
 		else {
+			if (mappings.size() == 0) System.out.println("Empty");
 			int i=0;
 			for (Mapping m : mappings) {
 				System.out.print (" [ ");
@@ -53,9 +54,10 @@ public class Main {
 	}
 
 	private void printDevices (Vector<Device> devices) {
-		if (devices == null) System.out.println("Empty");
+		if (devices == null) System.out.println("null");
 		else {
 			int i=0;
+			if (devices.size() == 0) System.out.println("Empty");
 			for (Device d : devices) {
 				System.out.print (" [ ");
 				System.out.print (i);
