@@ -123,15 +123,7 @@ public class ManagementReader {
 
 	private void receiveQueryMapErase ()
 	{
-		int id = readInt();
-		for (Mapping m : mappings)
-		{
-			if (m.getId() == id)
-			{
-				mappings.remove(m);
-				break;
-			}
-		}
+		id = readInt();
 	}
 
 	private void receiveReplySuccess () { }
@@ -144,10 +136,24 @@ public class ManagementReader {
 
 	private void receiveReplyInputs ()
 	{
+		int size = readInt();
+		devices = new Vector<Device>(size);
+		for (int i = 0; i<size; i++)
+		{
+			Device local = readDeviceDescription();
+			devices.add(local);
+		}
 	}
 
 	private void receiveReplyOutputs ()
 	{
+		int size = readInt();
+		devices = new Vector<Device>(size);
+		for (int i = 0; i<size; i++)
+		{
+			Device local = readDeviceDescription();
+			devices.add(local);
+		}
 	}
 
 	private void receiveReplyMaps ()
