@@ -153,6 +153,7 @@ public class ManagementReader {
 	private void receiveReplyMaps ()
 	{
 		int size = readInt();
+		mappings = new Vector<Mapping>(size);
 		for (int i = 0; i<size; i++)
 		{
 			int id = readInt();
