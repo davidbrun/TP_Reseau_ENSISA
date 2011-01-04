@@ -27,8 +27,26 @@ public class SessionConfigurator {
 		return null;
 	}
 
-	public Vector<Mapping> getMaps () {
-		return null;
+	public Vector<Mapping> getMaps ()
+	{
+		try
+		{
+			connect();
+			ManagementWriter w = new ManagementWriter(connection.getOutputStream());
+			w.createQueryMaps();
+			w.send();
+			ManagementReader r = new ManagementReader(connection.getInputStream());
+			r.receive();
+			if (r.getType() == Protocol.REPLY_SUCCESS)
+				return r.getMappings();
+			else
+				return null;
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public boolean clearMaps () {
