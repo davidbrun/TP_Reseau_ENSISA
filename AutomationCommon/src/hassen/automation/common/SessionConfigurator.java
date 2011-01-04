@@ -19,12 +19,48 @@ public class SessionConfigurator {
 		return null;
 	}
 
-	public Vector<Device> getInputs () {
-		return null;
+	public Vector<Device> getInputs ()
+	{
+		try
+		{
+			connect();
+			ManagementWriter w = new ManagementWriter(connection.getOutputStream());
+			w.createQueryInputs();
+			w.send();
+			ManagementReader r = new ManagementReader(connection.getInputStream());
+			r.receive();
+			if (r.getType() == Protocol.REPLY_SUCCESS)
+				return r.getDevices();
+			else
+				return null;
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public Vector<Device> getOutputs () {
-		return null;
+	public Vector<Device> getOutputs ()
+	{
+		try
+		{
+			connect();
+			ManagementWriter w = new ManagementWriter(connection.getOutputStream());
+			w.createQueryOutputs();
+			w.send();
+			ManagementReader r = new ManagementReader(connection.getInputStream());
+			r.receive();
+			if (r.getType() == Protocol.REPLY_SUCCESS)
+				return r.getDevices();
+			else
+				return null;
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public Vector<Mapping> getMaps ()
@@ -53,11 +89,13 @@ public class SessionConfigurator {
 		return false;
 	}
 
-	public boolean eraseMap (int id) {
+	public boolean eraseMap (int id)
+	{		
 		return true;
 	}
 
-	public boolean addMap (Mapping mapping) {
+	public boolean addMap (Mapping mapping)
+	{
 		return true;
 	}
 
