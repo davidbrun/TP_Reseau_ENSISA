@@ -102,11 +102,9 @@ public class ManagementReader {
 		id = readInt();
 	}
 
-	private void receiveQueryInputs () {
-	}
+	private void receiveQueryInputs () { }
 
-	private void receiveQueryOutputs () {
-	}
+	private void receiveQueryOutputs () { }
 
 	private void receiveQueryMaps () { }
 
