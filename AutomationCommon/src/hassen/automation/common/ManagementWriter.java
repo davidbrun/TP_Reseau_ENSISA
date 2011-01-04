@@ -77,10 +77,14 @@ public class ManagementWriter {
 		writeInt(device.getId());
 	}
 	
-	public void createQueryInputs () {
+	public void createQueryInputs ()
+	{
+		writeInt(Protocol.QUERY_INPUTS);
 	}
 	
-	public void createQueryOutputs () {
+	public void createQueryOutputs ()
+	{
+		writeInt(Protocol.QUERY_OUTPUTS);
 	}
 	
 	public void createQueryMaps () {
@@ -114,7 +118,9 @@ public class ManagementWriter {
 		writeInt(Protocol.REPLY_FAIL);
 	}
 	
-	public void createReplyInputs(Vector<Device> inputs) {
+	public void createReplyInputs(Vector<Device> inputs)
+	{
+		
 	}
 	
 	public void createReplyOutputs(Vector<Device> outputs) {
