@@ -120,10 +120,22 @@ public class ManagementWriter {
 	
 	public void createReplyInputs(Vector<Device> inputs)
 	{
-		
+		writeInt(Protocol.REPLY_INPUTS);
+		writeInt(inputs.size());
+		for (Device d : inputs)
+		{
+			writeDeviceDescription(d);
+		}
 	}
 	
-	public void createReplyOutputs(Vector<Device> outputs) {
+	public void createReplyOutputs(Vector<Device> outputs)
+	{
+		writeInt(Protocol.REPLY_OUTPUTS);
+		writeInt(outputs.size());
+		for (Device d : outputs)
+		{
+			writeDeviceDescription(d);
+		}
 	}
 	
 	public void createReplyMaps(Vector<Mapping> maps) {
