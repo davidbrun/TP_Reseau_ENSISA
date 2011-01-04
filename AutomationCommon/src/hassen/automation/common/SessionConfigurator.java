@@ -96,7 +96,24 @@ public class SessionConfigurator {
 
 	public boolean addMap (Mapping mapping)
 	{
-		return true;
+		try
+		{
+			connect();
+			ManagementWriter w = new ManagementWriter(connection.getOutputStream());
+			w.createQueryMapAdd(mapping);
+			w.send();
+			ManagementReader r = new ManagementReader(connection.getInputStream());
+			r.receive();
+			if (r.getType() == Protocol.REPLY_SUCCESS)
+				return true;
+			else
+				return false;
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public void connect () throws Exception {
