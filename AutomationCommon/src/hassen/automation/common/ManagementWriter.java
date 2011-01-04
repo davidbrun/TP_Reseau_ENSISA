@@ -87,7 +87,8 @@ public class ManagementWriter {
 		writeInt(Protocol.QUERY_OUTPUTS);
 	}
 	
-	public void createQueryMaps () {
+	public void createQueryMaps ()
+	{
 		writeInt(Protocol.QUERY_MAPS);
 	}
 	
@@ -110,11 +111,13 @@ public class ManagementWriter {
 		writeInt(id);
 	}
 	
-	public void createReplySuccess () {
+	public void createReplySuccess ()
+	{
 		writeInt(Protocol.REPLY_SUCCESS);
 	}
 	
-	public void createReplyFail () {
+	public void createReplyFail ()
+	{
 		writeInt(Protocol.REPLY_FAIL);
 	}
 	
@@ -138,7 +141,8 @@ public class ManagementWriter {
 		}
 	}
 	
-	public void createReplyMaps(Vector<Mapping> maps) {
+	public void createReplyMaps(Vector<Mapping> maps)
+	{
 		writeInt(Protocol.REPLY_MAPS);
 		writeInt(maps.size());
 		for (Mapping m : maps)
