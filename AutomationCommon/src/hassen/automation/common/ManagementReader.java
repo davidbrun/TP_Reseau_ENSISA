@@ -89,8 +89,7 @@ public class ManagementReader {
 		return local;
 	}
 
-	private void receiveQueryConfig () {
-	}
+	private void receiveQueryConfig () { }
 
 	private void receiveQueryDeclare ()
 	{
