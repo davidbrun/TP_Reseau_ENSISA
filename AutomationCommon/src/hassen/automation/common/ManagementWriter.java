@@ -102,9 +102,8 @@ public class ManagementWriter {
 	public void createQueryMapAdd (Mapping mapping)
 	{
 		writeInt(Protocol.QUERY_MAP_ADD);
-		writeInt(mapping.getId());
-		writeDeviceDescription(mapping.getFrom());
-		writeDeviceDescription(mapping.getTo());
+		writeInt (mapping.getFrom().getId());
+		writeInt (mapping.getTo().getId());	
 	}
 	
 	public void createQueryMapErase(int id)
