@@ -73,6 +73,9 @@ public class EventWriter {
 		}
 	}
 	
-	public void createSendEvent (Event event) {
+	public void createSendEvent (Event event)
+	{
+		writeInt(Protocol.SEND_EVENT);
+		writeEventDescription(event);
 	}
 }
