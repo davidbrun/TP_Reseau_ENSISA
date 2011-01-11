@@ -124,9 +124,7 @@ public class ManagementReader {
 
 	private void receiveReplyFail () { }
 
-	private void receiveReplyConfig ()
-	{
-	}
+	private void receiveReplyConfig () { }
 
 	private void receiveReplyInputs ()
 	{
