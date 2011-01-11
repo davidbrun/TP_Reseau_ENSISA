@@ -111,11 +111,8 @@ public class ManagementReader {
 
 	private void receiveQueryMapAdd ()
 	{
-		int id = readInt();
-		Device from = readDeviceDescription();
-		Device to = readDeviceDescription();
-		Mapping local = new Mapping(id, from, to);
-		mappings.add(local);
+		from = readInt();
+		to = readInt();
 	}
 
 	private void receiveQueryMapErase ()
