@@ -29,6 +29,19 @@ public class EventReader {
 		}
 	}
 
+	private Event readEventDescription ()
+	{
+		Event local = new Event();
+		int type = readInt();
+		if (type == Protocol.EVENT_ON) local.setOnEvent(readInt());
+		if (type == Protocol.EVENT_OFF) local.setOffEvent(readInt());
+		if (type == Protocol.EVENT_NEXT) local.setNextEvent(readInt());
+		if (type == Protocol.EVENT_PREVIOUS) local.setPreviousEvent(readInt());
+		if (type == Protocol.EVENT_VALUE) local.setValueEvent(readInt(), readInt());
+		if (type == Protocol.EVENT_ZERO) local.setZeroEvent(readInt());
+		return local;
+	}
+	
 	private void receiveSendEvent () {
 		event = new Event ();
 	}
