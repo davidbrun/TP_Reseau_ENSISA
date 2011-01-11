@@ -144,7 +144,7 @@ public class ManagementReader {
 		for (int i = 0; i<size; i++)
 		{
 			Device local = readDeviceDescription();
-			devices.add(local);
+			if (local.isOutput()) devices.add(local);
 		}
 	}
 
