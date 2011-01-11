@@ -30,8 +30,20 @@ public class SessionClientEvent {
 		}
 	}
 
-	public Event receiveEvent () {
-		return null;
+	public Event receiveEvent ()
+	{
+		try
+		{
+			connect();
+			EventReader er = new EventReader(connection);
+			er.receive();
+			return er.getEvent();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void connect () throws Exception {
