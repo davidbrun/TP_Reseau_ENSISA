@@ -154,7 +154,9 @@ public class ManagementWriter {
 		}
 	}
 	
-	public void createReplyConfig (Settings settings) {
+	public void createReplyConfig (Settings settings)
+	{
+		writeInt(Protocol.REPLY_CONFIG);
 	}
 	
 }
