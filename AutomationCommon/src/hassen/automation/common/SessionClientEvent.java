@@ -15,7 +15,19 @@ public class SessionClientEvent {
 		this.allreadyTried = false;
 	}
 
-	public void sendEvent (Event event) {
+	public void sendEvent (Event event)
+	{
+		try
+		{
+			connect();
+			EventWriter ew = new EventWriter(connection, settings);
+			ew.createSendEvent(event);
+			ew.send();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public Event receiveEvent () {
