@@ -45,7 +45,7 @@ public class SessionDevice
 	{
 		try
 		{
-			//connect();
+			connect();
 			ManagementWriter w = new ManagementWriter(connection.getOutputStream());
 			w.createQueryUndeclare(device);
 			w.send();
