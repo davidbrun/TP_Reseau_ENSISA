@@ -108,7 +108,24 @@ public class SessionConfigurator {
 
 	public boolean eraseMap (int id)
 	{		
-		return true;
+		try
+		{
+			connect();
+			ManagementWriter w = new ManagementWriter(connection.getOutputStream());
+			w.createQueryMapErase(id);
+			w.send();
+			ManagementReader r = new ManagementReader(connection.getInputStream());
+			r.receive();
+			if (r.getType() == Protocol.REPLY_SUCCESS)
+				return true;
+			else
+				return false;
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public boolean addMap (Mapping mapping)
