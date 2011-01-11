@@ -42,8 +42,9 @@ public class EventReader {
 		return local;
 	}
 	
-	private void receiveSendEvent () {
-		event = new Event ();
+	private void receiveSendEvent ()
+	{
+		event = readEventDescription();
 	}
 
 	public void receive() {
