@@ -158,8 +158,7 @@ public class ManagementReader {
 			Device from = readDeviceDescription();
 			Device to = readDeviceDescription();
 			
-			Mapping local = new Mapping(id, from, to);
-			mappings.add(local);
+			mappings.add(new Mapping(id, from, to));
 		}
 	}
 
