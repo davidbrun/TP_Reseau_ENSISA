@@ -38,6 +38,41 @@ public class EventWriter {
 		}
 	}
 
+	private void writeEventDescription (Event event)
+	{
+		if (event.isOnEvent())
+		{
+			writeInt(Protocol.EVENT_ON);
+			writeInt(event.getDeviceID());
+		}	
+		if (event.isOffEvent())
+		{
+			writeInt(Protocol.EVENT_OFF);
+			writeInt(event.getDeviceID());
+		}
+		if (event.isNextEvent())
+		{
+			writeInt(Protocol.EVENT_NEXT);
+			writeInt(event.getDeviceID());
+		}
+		if (event.isPreviousEvent())
+		{
+			writeInt(Protocol.EVENT_PREVIOUS);
+			writeInt(event.getDeviceID());
+		}
+		if (event.isValueEvent())
+		{
+			writeInt(Protocol.EVENT_VALUE);
+			writeInt(event.getDeviceID());
+			writeInt (event.getValue());
+		}
+		if (event.isZeroEvent())
+		{
+			writeInt (Protocol.EVENT_ZERO);
+			writeInt(event.getDeviceID());
+		}
+	}
+	
 	public void createSendEvent (Event event) {
 	}
 }
