@@ -62,7 +62,9 @@ public class ManagementWriter {
 		}
 	}
 
-	public void createQueryConfig() {
+	public void createQueryConfig()
+	{
+		writeInt(Protocol.QUERY_CONFIG);
 	}
 
 	public void createQueryDeclare(Device device)
