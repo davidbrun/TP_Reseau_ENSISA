@@ -82,11 +82,15 @@ public class Main {
 		}
 	}
 
-	private void processEventMenu () throws IOException {
+	private void displayEventMenu()
+	{
 		System.out.println("[ N ] Send Next");
 		System.out.println("[ P ] Send Previous");
 		System.out.println("[ Z ] Send Zero");
 		System.out.print("What : ");
+	}
+	private void processEventMenu () throws IOException {
+		this.displayEventMenu();
 		int deviceID = document.getDevice().getId();
 		Event event = new Event();
 		while (true) {
@@ -95,12 +99,17 @@ public class Main {
 			if (kind.equals("P")) event.setPreviousEvent(deviceID);
 			if (kind.equals("Z")) event.setZeroEvent(deviceID);
 			document.send (event);
+			this.displayEventMenu();
 		}
 	}
 
-	private void processRangeMenu () throws IOException {
+	private void displayRangeMenu()
+	{
 		System.out.println("[ # ] Send Value");
 		System.out.print("What : ");
+	}
+	private void processRangeMenu () throws IOException {
+		this.displayRangeMenu();
 		int deviceID = document.getDevice().getId();
 		Event event = new Event();
 		while (true) {
@@ -111,6 +120,7 @@ public class Main {
 			}
 			catch (Exception e) {}
 			document.send (event);
+			this.displayRangeMenu();
 		}
 	}
 
