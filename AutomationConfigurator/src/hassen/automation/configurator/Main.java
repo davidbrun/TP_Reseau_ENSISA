@@ -76,7 +76,8 @@ public class Main {
 	private void processEraseMapping () {
 		Vector<Mapping> mappings = getSessionConfigurator().getMaps();
 		printMappings (mappings);
-		boolean success = getSessionConfigurator().eraseMap(getInteger(mappings.size()));
+		//boolean success = getSessionConfigurator().eraseMap(getInteger(mappings.size()));
+		boolean success = getSessionConfigurator().eraseMap(mappings.get(getInteger(mappings.size())).getId());
 		if (success) System.out.println("Entry erased");
 		else System.out.println("Error in erasing");
 	}
