@@ -58,10 +58,14 @@ public class Main {
 		}
 	}
 
-	private void processBinaryMenu () throws IOException {
+	private void displayBinaryMenu()
+	{
 		System.out.println("[ 1 ] Send On");
 		System.out.println("[ 0 ] Send Off");
 		System.out.print("What : ");
+	}
+	private void processBinaryMenu () throws IOException {
+		this.displayBinaryMenu();
 		int deviceID = document.getDevice().getId();
 		Event event = new Event();
 		while (true) {
@@ -69,6 +73,7 @@ public class Main {
 			if (kind.equals("0")) event.setOffEvent(deviceID);
 			if (kind.equals("1")) event.setOnEvent(deviceID);
 			document.send (event);
+			this.displayBinaryMenu();
 		}
 	}
 
