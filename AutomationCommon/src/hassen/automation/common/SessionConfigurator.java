@@ -73,7 +73,7 @@ public class SessionConfigurator {
 			w.send();
 			ManagementReader r = new ManagementReader(connection.getInputStream());
 			r.receive();
-			if (r.getType() == Protocol.REPLY_SUCCESS)
+			if (r.getType() == Protocol.REPLY_MAPS)
 				return r.getMappings();
 			else
 				return null;
