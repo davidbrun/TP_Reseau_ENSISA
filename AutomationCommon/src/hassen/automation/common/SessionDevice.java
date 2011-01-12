@@ -65,12 +65,14 @@ public class SessionDevice
 
 	public void connect () throws Exception
 	{
-		if (connection != null) disconnect();
-		if (allreadyTried) {
-			throw new Exception ("AllReady tried");
-		} else {
-			allreadyTried = true;
-			connection = new Socket (settings.getServerName(), settings.getCtrlPort());
+		if (connection == null)
+		{
+			if (allreadyTried) {
+				throw new Exception ("AllReady tried");
+			} else {
+				allreadyTried = true;
+				connection = new Socket (settings.getServerName(), settings.getCtrlPort());
+			}
 		}
 	}
 

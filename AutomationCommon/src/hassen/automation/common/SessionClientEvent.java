@@ -47,13 +47,15 @@ public class SessionClientEvent {
 	}
 
 	public void connect () throws Exception {
-		if (connection != null) disconnect();
-		if (allreadyTried) {
-			throw new Exception ("AllReady tried");
-		} else {
-			allreadyTried = true;
-			connection = new MulticastSocket(settings.getDataPort());
-			connection.joinGroup(InetAddress.getByName(settings.getMulticastAddress()));
+		if (connection == null)
+		{
+			if (allreadyTried) {
+				throw new Exception ("AllReady tried");
+			} else {
+				allreadyTried = true;
+				connection = new MulticastSocket(settings.getDataPort());
+				connection.joinGroup(InetAddress.getByName(settings.getMulticastAddress()));
+			}
 		}
 	}
 
