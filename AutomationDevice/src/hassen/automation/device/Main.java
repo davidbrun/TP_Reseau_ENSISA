@@ -32,7 +32,8 @@ public class Main {
 		}
 	}
 
-	private void processCompositeMenu () throws IOException {
+	private void displayCompositeMenu()
+	{
 		System.out.println("[ O ] Send On");
 		System.out.println("[ o ] Send Off");
 		System.out.println("[ N ] Send Next");
@@ -40,6 +41,9 @@ public class Main {
 		System.out.println("[ Z ] Send Zero");
 		System.out.println("[ # ] Send Value");
 		System.out.print("What : ");
+	}
+	private void processCompositeMenu () throws IOException {
+		this.displayCompositeMenu();
 		int deviceID = document.getDevice().getId();
 		Event event = new Event();
 		while (true) {
@@ -55,6 +59,7 @@ public class Main {
 			}
 			catch (Exception e) {}
 			document.send (event);
+			this.displayCompositeMenu();
 		}
 	}
 
