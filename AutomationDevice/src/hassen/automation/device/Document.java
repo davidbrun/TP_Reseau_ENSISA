@@ -56,20 +56,21 @@ public class Document {
 			if (event.isOnEvent() || event.isOffEvent()) {
 				return true;
 			}
-		} else return false;
+		}
 		if (getDevice().isEvent()) {
 			if (event.isNextEvent() || event.isPreviousEvent() || event.isZeroEvent()) {
 				return true;
 			}
-		} else return false;
+		}
 		if (getDevice().isRange()) {
 			if (event.isValueEvent()) {
 				return true;
 			}
-		} else return false;
+		}
 		if (getDevice().isComposite()) {
 			return true;
-		} else return false;
+		}
+		return false;
 	}
 
 	public void start() {
